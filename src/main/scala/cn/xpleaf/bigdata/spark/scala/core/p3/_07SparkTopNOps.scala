@@ -72,7 +72,7 @@ object _07SparkTopNOps {
         } else {
             ts
         }
-        // 上面返回ts的方法比较巧妙，主要是因为，ts在进行fropRight操作后，本身不变，但是会返回一个新的集合
+        // 上面返回ts的方法比较巧妙，主要是因为，ts在进行dropRight操作后，本身不变，但是会返回一个新的集合
     }
 
     // 合并不同分区中key相同的value集合，同时使用treeSet来进行排序
