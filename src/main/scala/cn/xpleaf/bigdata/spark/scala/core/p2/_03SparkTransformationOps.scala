@@ -43,6 +43,8 @@ object _03SparkTransformationOps {
         val pairsRDD = wordsRDD.map(word => (word, 1))
 
         val retRDD:RDD[(String, ArrayBuffer[Int])] = pairsRDD.aggregateByKey(ArrayBuffer[Int]()) (  // 这里需要指定value的类型为ArrayBuffer[Int]()
+          // 更正一下，其实上面的ArrayBuffer[Int]()只是初始化一个ArrayBuffer对象，这也就相当于是combineByKey中的createCombiner函数的操作
+          // 所以其实这里可以先创建一个ArrayBuffer对象，再传到该位置中
             (part, num) => {
                 part.append(num)
                 part
