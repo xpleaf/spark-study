@@ -83,6 +83,13 @@ public class _01SparkWordCountOps {
                 return new Tuple2<String, Integer>(word, 1);
             }
         });
+        
+        // 上面是ShuffleMapStage
+        // ----------------------分隔符----------------------
+        // 即以pairRDD作为分隔符，前面的是ShuffleMapStage，后面的是ResultStage
+        // ----------------------分隔符----------------------
+        // 下面是ResultStage
+        
         JavaPairRDD<String, Integer> retRDD = pairRDD.reduceByKey(new Function2<Integer, Integer, Integer>() {
             @Override
             public Integer call(Integer v1, Integer v2) throws Exception {
